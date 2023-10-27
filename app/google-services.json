@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "210746756233",
+    "firebase_url": "https://guardiansafe-47f4c-default-rtdb.firebaseio.com",
+    "project_id": "guardiansafe-47f4c",
+    "storage_bucket": "guardiansafe-47f4c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210746756233:android:aedf7142c3b43180e8ca58",
+        "android_client_info": {
+          "package_name": "icbt.team1.gs"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4TCjFzuwSi9OhoC_FOxHvf50vlcOiyjg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

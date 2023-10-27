@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Guardian Safe</string>
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="login_successful">Login Successfully.</string>
+    <string name="login_error">Login Failed !</string>
+    <string name="registration_successful">Successfully Registered.</string>
+    <string name="fill_in_all_fields">Fields can\'t be Empty !</string>
+    <string name="parent_login">Parent Login</string>
+    <string name="driver_login">Driver Login</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="add_child_to_bus">Add Child to Bus</string>
+    <string name="add_child_to_bus_message">It\'s time to add your child to the bus. Do you want to select a bus now?</string>
+    <string name="error_fetching_children">Data Display Error !</string>
+    <string name="login_user_not_found">User not found.</string>
+    <string name="login_invalid_credentials">Invalid credentials.</string>
+    <string name="login_auth_error">Authentication error.</string>
+</resources>

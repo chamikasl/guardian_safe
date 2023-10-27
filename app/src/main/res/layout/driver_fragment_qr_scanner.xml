@@ -1,0 +1,29 @@
+<!-- driver_fragment_qr_scanner.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <!-- QR Scanner View (CompoundBarcodeView) -->
+    <com.journeyapps.barcodescanner.CompoundBarcodeView
+        android:id="@+id/qrScannerView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"
+        android:background="@android:color/transparent">
+
+        <!-- Close button (You can use an ImageView as your close button) -->
+        <ImageView
+            android:id="@+id/closeQRScannerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:padding="5dp"
+            android:src="@drawable/baseline_close_24"
+            app:tint="@color/white" />
+
+    </com.journeyapps.barcodescanner.CompoundBarcodeView>
+
+
+</RelativeLayout>

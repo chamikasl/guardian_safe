@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="true">
+    <item android:drawable="@drawable/splash_bag3" android:duration="3000" />
+
+    <!-- Add more frames here as needed -->
+</animation-list>

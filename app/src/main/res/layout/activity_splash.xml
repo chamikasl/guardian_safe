@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lavender">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:layout_marginTop="500dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="244dp"
+        android:alpha="0.3"
+        android:background="@drawable/splash_bag">
+
+    </ImageView>
+</LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bag01"
+        android:alpha="0.2">
+
+    </ImageView>
+    <!-- Animated ImageView -->
+
+
+    <ImageView
+        android:id="@+id/animatedImageView"
+        android:layout_width="398dp"
+        android:layout_height="676dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/animation_drawable"
+        android:visibility="invisible" />
+
+    <!-- Loading Bar (ProgressBar) -->
+    <ProgressBar
+        android:id="@+id/loadingProgressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="650dp"
+        android:layout_centerHorizontal="true"
+         />
+
+</RelativeLayout>

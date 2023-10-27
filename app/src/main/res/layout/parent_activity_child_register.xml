@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Parent.ParentChildRegisterActivity">
+
+    <ImageButton
+        android:id="@+id/toback"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/back_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/lavender" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="314dp"
+        android:layout_height="506dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.497">
+
+        <EditText
+            android:id="@+id/sname"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/input_design2"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:textColor="@color/lavender"
+            android:textColorHint="@color/lavender" />
+
+        <EditText
+            android:id="@+id/sclname"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input_design2"
+            android:ems="10"
+            android:hint="School"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:textColor="@color/lavender"
+            android:textColorHint="@color/lavender" />
+
+        <EditText
+            android:id="@+id/homeaddress"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input_design2"
+            android:ems="10"
+            android:hint="Home Address"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:textColor="@color/lavender"
+            android:textColorHint="@color/lavender" />
+
+        <EditText
+            android:id="@+id/birthday"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input_design2"
+            android:ems="10"
+            android:hint="Birth Day"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:textColor="@color/lavender"
+            android:textColorHint="@color/lavender" />
+
+        <EditText
+            android:id="@+id/gender"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input_design2"
+            android:ems="10"
+            android:hint="Gender"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:textColor="@color/lavender"
+            android:textColorHint="@color/lavender" />
+
+        <EditText
+            android:id="@+id/note"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input_design2"
+            android:ems="10"
+            android:hint="Note"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:textColor="@color/lavender"
+            android:textColorHint="@color/lavender" />
+
+        <Button
+            android:id="@+id/addbtn"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/button_design"
+            android:text="Add Child"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

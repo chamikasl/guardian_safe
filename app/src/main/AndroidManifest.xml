@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- CALL_PHONE permission -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.NOTIFICATION_POLICY_ACCESS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="GS"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GS"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity> <!-- Activities for the Driver section -->
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Driver.DriverRegisterActivity" />
+        <activity android:name=".Driver.DriverLoginActivity" />
+        <activity android:name=".Driver.DriverHomeActivity" />
+        <activity android:name=".Driver.Fragments.StudentsFragment" />
+        <activity android:name=".Driver.Fragments.HomeFragment" />
+        <activity android:name=".Driver.Fragments.SettingsFragment" />
+        <activity android:name=".Driver.Fragments.RequestsFragment" /> <!-- Activities for the Parent section -->
+        <activity android:name=".Parent.ParentRegisterActivity" />
+        <activity android:name=".Parent.ParentLoginActivity" />
+        <activity android:name=".Parent.ParentHomeActivity" />
+        <activity android:name=".Parent.ParentSettingsActivity" />
+        <activity android:name=".Parent.ParentMessagesActivity" />
+        <activity android:name=".Parent.ParentChildRegisterActivity" />
+        <activity android:name=".Parent.ParentChildProfileActivity" />
+        <activity android:name=".Parent.ParentChildViewActivity" />
+        <activity android:name=".Parent.ParentChildAddBusActivity" />
+        <activity android:name=".Parent.QRCodeHelper" />
+        <service android:name=".MyBackgroundService" />
+        <service android:name=".MessageNotificationService" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA3sWPn_pVUxch__KA-Uy0MSiCPp8oCLFA" />
+    </application>
+
+
+</manifest>
