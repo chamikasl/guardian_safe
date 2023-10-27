@@ -1,19 +1,21 @@
-//finished
-
 package icbt.team1.gs.Parent;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.messaging.FirebaseMessaging;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 import icbt.team1.gs.databinding.ParentActivityRegisterBinding;
 
@@ -30,10 +32,9 @@ public class ParentRegisterActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        // Initialize Firebase Auth, Firestore, and Realtime Database
         mAuth = FirebaseAuth.getInstance();
         mFirestore = FirebaseFirestore.getInstance();
-        mRealtimeDatabase = FirebaseDatabase.getInstance().getReference(); // Initialize Firebase Realtime Database reference
+        mRealtimeDatabase = FirebaseDatabase.getInstance().getReference();
 
         binding.toback.setOnClickListener(view1 -> startActivity(new Intent(ParentRegisterActivity.this, ParentLoginActivity.class)));
 
@@ -45,7 +46,6 @@ public class ParentRegisterActivity extends AppCompatActivity {
             String password = binding.password.getText().toString();
             String address = binding.address.getText().toString().trim();
 
-            // Validate user input
             if (isValidInput(parentName, phone, email, role, password, address)) {
                 registerParent(parentName, phone, email, role, password, address);
             }
@@ -68,46 +68,54 @@ public class ParentRegisterActivity extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
-                        // User registration successful
-                        String userId = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        if (user != null) {
+                            String userId = user.getUid();
 
-                        // Create a user document in Firestore
-                        Map<String, Object> user = new HashMap<>();
-                        user.put("name", parentName);
-                        user.put("phone", phone);
-                        user.put("email", email);
-                        user.put("role", role);
-                        user.put("address", address);
-                        user.put("uid", userId); // Save the parent's UID in Firestore
+                            // Retrieve the FCM token
+                            FirebaseMessaging.getInstance().getToken()
+                                    .addOnCompleteListener(new OnCompleteListener<String>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<String> task) {
+                                            if (task.isSuccessful()) {
+                                                String fcmToken = task.getResult();
+                                                // Create a userMap with the FCM token
+                                                Map<String, Object> userMap = new HashMap<>();
+                                                userMap.put("name", parentName);
+                                                userMap.put("phone", phone);
+                                                userMap.put("email", email);
+                                                userMap.put("role", role);
+                                                userMap.put("address", address);
+                                                userMap.put("fcmToken", fcmToken); // Save the FCM token
 
-                        // Save user data to Firestore
-                        mFirestore.collection("parents").document(userId)
-                                .set(user)
-                                .addOnCompleteListener(task1 -> {
-                                    if (task1.isSuccessful()) {
-                                        // User data saved successfully in Firestore
+                                                // Save user data to Firestore
+                                                mFirestore.collection("parents").document(userId)
+                                                        .set(userMap)
+                                                        .addOnCompleteListener(task1 -> {
+                                                            if (task1.isSuccessful()) {
+                                                                // Save user data to Firebase Realtime Database
+                                                                DatabaseReference userRef = mRealtimeDatabase.child("parents").child(userId);
+                                                                userRef.setValue(userMap);
 
-                                        // Save user data to Firebase Realtime Database
-                                        DatabaseReference userRef = mRealtimeDatabase.child("parents").child(userId);
-                                        userRef.setValue(user);
-
-                                        // Save UID in Realtime Database
-                                        userRef.child("uid").setValue(userId);
-
-                                        showToast("Registration Successful");
-                                        startActivity(new Intent(ParentRegisterActivity.this, ParentLoginActivity.class));
-                                        finish(); // Finish the registration activity
-                                    } else {
-                                        // Error saving user data in Firestore
-                                        showToast("Error: " + Objects.requireNonNull(task1.getException()).getMessage());
-                                    }
-                                });
+                                                                showToast("Registration Successful");
+                                                                startActivity(new Intent(ParentRegisterActivity.this, ParentLoginActivity.class));
+                                                                finish();
+                                                            } else {
+                                                                showToast("Error: " + task1.getException().getMessage());
+                                                            }
+                                                        });
+                                            } else {
+                                                showToast("Error getting FCM token: " + task.getException().getMessage());
+                                            }
+                                        }
+                                    });
+                        }
                     } else {
-                        // User registration failed
-                        showToast("Error: " + Objects.requireNonNull(task.getException()).getMessage());
+                        showToast("Error: " + task.getException().getMessage());
                     }
                 });
     }
+
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
