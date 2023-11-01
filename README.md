@@ -1,6 +1,6 @@
 # Guardian Safe - Ensuring Safety in School Transportation
 
-Guardian Safe is an Android app designed to enhance the safety of school transportation by allowing parents to track the live location of school buses and monitor the boarding status of their children in real-time.
+Guardian Safe is an Android app designed to enhance the safety of school transportation by allowing parents to track the live location of school buses and monitor the boarding status of their children in real time.
 
 ## Overview
 
@@ -60,7 +60,7 @@ Not yet licensed.
 ## Acknowledgments
 
 Special thanks to everyone who helped with this project.
-Icons made by Author from www.flaticon.com. and https://fonts.google.com/
+Icons made by Author from www.flaticon.com and https://fonts.google.com/
 
 ## Contact
 
