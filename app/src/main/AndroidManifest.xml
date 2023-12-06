@@ -11,7 +11,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- CALL_PHONE permission -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.VIBRATE"/>
@@ -50,7 +50,8 @@
         <activity android:name=".Driver.Fragments.StudentsFragment" />
         <activity android:name=".Driver.Fragments.HomeFragment" />
         <activity android:name=".Driver.Fragments.SettingsFragment" />
-        <activity android:name=".Driver.Fragments.RequestsFragment" /> <!-- Activities for the Parent section -->
+        <activity android:name=".Driver.Fragments.RequestsFragment" /> 
+        <!-- Activities for the Parent section -->
         <activity android:name=".Parent.ParentRegisterActivity" />
         <activity android:name=".Parent.ParentLoginActivity" />
         <activity android:name=".Parent.ParentHomeActivity" />
@@ -66,7 +67,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyA3sWPn_pVUxch__KA-Uy0MSiCPp8oCLFA" />
+            android:value="< YOUR MAPS API KEY HERE >" />
     </application>
 
 
